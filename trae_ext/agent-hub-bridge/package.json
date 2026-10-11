@@ -1,0 +1,44 @@
+{
+  "name": "agent-hub-bridge",
+  "displayName": "AgentHub Bridge (Editor-side Worker)",
+  "description": "AgentHub 调度中枢 · 编辑器侧执行体：每个窗口显式接管一个 agent，按 agent 分锁，保证 A 任务只给 A 做。",
+  "version": "0.3.1",
+  "publisher": "agenthub",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["*"],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "AgentHub Bridge",
+      "properties": {
+        "quantHub.hubUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:8765",
+          "description": "调度中枢 FastAPI 地址"
+        },
+        "quantHub.tokenFile": {
+          "type": "string",
+          "default": "",
+          "description": "中枢令牌文件路径（留空则用 <用户目录>/.agent-hub/.hub_token）"
+        },
+        "quantHub.stateDir": {
+          "type": "string",
+          "default": "",
+          "description": "运行态目录（留空则用 <用户目录>/.agent-hub）"
+        }
+      }
+    },
+    "commands": [
+      { "command": "quantHub.takeover.data_env", "title": "AgentHub: 本窗口接管 data_env（示例岗位）" },
+      { "command": "quantHub.takeover.audit", "title": "AgentHub: 本窗口接管 audit（示例岗位）" },
+      { "command": "quantHub.takeover.strategy_5m", "title": "AgentHub: 本窗口接管 strategy_5m（示例岗位）" },
+      { "command": "quantHub.takeover.strategy_5m_2", "title": "AgentHub: 本窗口接管 strategy_5m_2（示例岗位）" },
+      { "command": "quantHub.stopWorker", "title": "AgentHub: 停止本窗口执行体" },
+      { "command": "quantHub.workerStatus", "title": "AgentHub: 查看执行体状态" },
+      { "command": "quantHub.drive", "title": "AgentHub: 向当前会话发送自定义问题" }
+    ]
+  }
+}

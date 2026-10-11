@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 运行态（含令牌与轨迹，切勿入库）
+.hub_token
+hub.db
+hub.db-wal
+hub.db-shm
+.daemon_lock_*.pid
+.daemon_state_*.json
+.daemon_add_dirs_*.txt
+daemon.log
+daemon_traces/
+daemon_workdir/
+state/
+agents/
+
+# 编辑器
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
